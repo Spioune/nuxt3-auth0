@@ -14,7 +14,7 @@ const {
 export default defineNuxtConfig({
   privateRuntimeConfig: {
     AUTH0_SECRET,
-    AUTH0_BASE_URL,
+    AUTH0_BASE_URL: AUTH0_BASE_URL || process.env.URL,
     AUTH0_ISSUER_BASE_URL,
     AUTH0_CLIENT_ID,
     AUTH0_CLIENT_SECRET,
@@ -22,6 +22,7 @@ export default defineNuxtConfig({
     AUTH0_COOKIE_NAME,
   },
   nitro: {
+    preset: "lambda",
     esbuild: {
       options: {},
     },
